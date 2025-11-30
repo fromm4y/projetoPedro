@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Resultado - Polui Mares</title>
+  <style>
+    /* === TEMA POLUI MARES === */
+    :root {
+      --azul-escuro: #001f3f;
+      --azul-claro: #00b4d8;
+      --ciano: #48cae4;
+      --fundo: #e0f7fa;
+      --texto: #00334e;
+      --branco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Poppins', Arial, sans-serif;
+      background: linear-gradient(180deg, var(--fundo) 0%, #b2ebf2 100%);
+      color: var(--texto);
+      text-align: center;
+      padding: 60px 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      transition: background-color 0.4s, color 0.4s;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 0.3rem;
+      color: var(--azul-escuro);
+    }
+
+    h2 {
+      font-size: 1.8rem;
+      color: var(--azul-claro);
+      margin-top: 0;
+      margin-bottom: 0.8rem;
+      text-shadow: 0 0 10px rgba(0, 180, 216, 0.3);
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin-top: 0;
+      margin-bottom: 2rem;
+    }
+
+    /* ==== CARD RESULTADO ==== */
+    .card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 26px;
+      max-width: 420px;
+      backdrop-filter: blur(6px);
+      border: 1px solid rgba(0, 180, 216, 0.2);
+    }
+
+    .card img {
+      max-width: 340px;
+      border-radius: 14px;
+      display: block;
+      margin: 0 auto 20px auto;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    button {
+      padding: 12px 26px;
+      background: linear-gradient(135deg, var(--azul-claro), var(--ciano));
+      border: none;
+      border-radius: 28px;
+      color: var(--branco);
+      font-weight: 600;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 18px rgba(0, 180, 216, 0.3);
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 30px rgba(0, 180, 216, 0.4);
+      background: linear-gradient(135deg, var(--ciano), #90e0ef);
+    }
+
+    footer {
+      margin-top: 40px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+      color: var(--texto);
+    }
+
+    /* ==== MODO ESCURO ==== */
+    body.dark-mode {
+      background: linear-gradient(180deg, #001a33 0%, #003459 100%);
+      color: #e0f7fa;
+    }
+
+    body.dark-mode h1 {
+      color: #90e0ef;
+    }
+    body.dark-mode h2 {
+      color: #48cae4;
+      text-shadow: 0 0 12px rgba(0, 191, 255, 0.4);
+    }
+
+    body.dark-mode .card {
+      background: rgba(0, 47, 73, 0.8);
+      border: 1px solid rgba(0, 191, 255, 0.3);
+      box-shadow: 0 10px 30px rgba(0, 191, 255, 0.2);
+    }
+
+    body.dark-mode p {
+      color: #caf0f8;
+    }
+
+    body.dark-mode button {
+      background: linear-gradient(135deg, #0077b6, #00b4d8);
+      box-shadow: 0 8px 18px rgba(0, 191, 255, 0.4);
+    }
+
+    body.dark-mode footer {
+      color: #90e0ef;
+    }
+
+    /* ==== BOTÃO DE TEMA ==== */
+    #modoToggle {
+      position: fixed;
+      top: 15px;
+      right: 15px;
+      background: rgba(0, 0, 0, 0.15);
+      border: none;
+      color: #fff;
+      font-size: 1.2rem;
+      border-radius: 50%;
+      padding: 10px;
+      cursor: pointer;
+      transition: 0.3s;
+      z-index: 10;
+    }
+
+    #modoToggle:hover {
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    @media (max-width: 500px) {
+      .card {
+        max-width: 90%;
+      }
+      h1 {
+        font-size: 1.7rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <button id="modoToggle" aria-label="Alternar modo escuro/claro">🌙</button>
+
+  <h1>🌊 Emoção detectada:</h1>
+  <h2 id="emocaoTitle">Processando...</h2>
+  <p id="confTitle"></p>
+
+  <div class="card">
+    <img id="imagemEmocao" alt="Imagem relacionada à emoção" />
+    <button onclick="voltar()">⬅️ Voltar</button>
+  </div>
+
+  <footer>
+    Projeto Escolar – <strong>Polui Mares</strong> © <span id="anoAtual"></span>
+  </footer>
+
+  <script>
+    // --- DADOS DAS EMOÇÕES ---
+    const imagensPorEmocao = {
+      feliz: [
+      'static/mar_feliz/1.png', 
+      'static/mar_feliz/2.png',
+      'static/mar_feliz/3.png',
+      'static/mar_feliz/4.png',
+      'static/mar_feliz/5.png',
+      'static/mar_feliz/6.png',
+      'static/mar_feliz/7.png',
+      'static/mar_feliz/8.png',
+      'static/mar_feliz/9.png',
+      'static/mar_feliz/10.png',
+      'static/mar_feliz/11.png', 
+      'static/mar_feliz/12.png',
+      'static/mar_feliz/13.png',
+      'static/mar_feliz/14.png',
+      'static/mar_feliz/15.png',
+      'static/mar_feliz/16.png',
+      'static/mar_feliz/17.png',
+      'static/mar_feliz/18.png',
+      'static/mar_feliz/19.png',
+      'static/mar_feliz/20.png'
+    ],
+
+      triste: [
+
+      'static/mar_triste/1.png', 
+      'static/mar_triste/2.png',
+      'static/mar_triste/3.png',
+      'static/mar_triste/4.png',
+      'static/mar_triste/5.png',
+      'static/mar_triste/6.png',
+      'static/mar_triste/7.png',
+      'static/mar_triste/8.png',
+      'static/mar_triste/9.png',
+      'static/mar_triste/10.png',
+      'static/mar_triste/11.png', 
+      'static/mar_triste/12.png',
+      'static/mar_triste/13.png',
+      'static/mar_triste/14.png',
+      'static/mar_triste/15.png',
+      'static/mar_triste/16.png',
+      'static/mar_triste/17.png',
+      'static/mar_triste/18.png',
+      'static/mar_triste/19.png',
+      'static/mar_triste/20.png',
+      'static/mar_triste/21.png',
+    ],
+
+      neutro: [
+
+      'static/mar_neutro/1.png', 
+      'static/mar_neutro/2.png',
+      'static/mar_neutro/3.png',
+      'static/mar_neutro/4.png',
+      'static/mar_neutro/5.png',
+      'static/mar_neutro/6.png',
+      'static/mar_neutro/7.png',
+      'static/mar_neutro/8.png',
+      'static/mar_neutro/9.png',
+      'static/mar_neutro/10.png',
+      'static/mar_neutro/11.png', 
+      'static/mar_neutro/12.png',
+      'static/mar_neutro/13.png',
+      'static/mar_neutro/14.png',
+      'static/mar_neutro/15.png',
+      'static/mar_neutro/16.png',
+      'static/mar_neutro/17.png',
+      'static/mar_neutro/18.png',
+      'static/mar_neutro/19.png',
+      'static/mar_neutro/20.png',
+    ]
+    };
+
+    const traducoes = {
+      happy: 'feliz',
+      sad: 'triste',
+      neutral: 'neutro',
+      angry: 'triste',
+      fearful: 'triste',
+      disgusted: 'triste',
+      surprised: 'feliz'
+    };
+
+    function getQueryParam(name) {
+      const params = new URLSearchParams(window.location.search);
+      return params.get(name);
+    }
+
+    function imagemAleatoria(lista) {
+      return lista[Math.floor(Math.random() * lista.length)];
+    }
+
+    const emocaoOriginal = getQueryParam('emocao') || 'neutral';
+    const conf = getQueryParam('conf') || '0';
+    const emocaoTraduzida = traducoes[emocaoOriginal] || 'nenhuma';
+
+    document.getElementById('emocaoTitle').innerText =
+      emocaoTraduzida.charAt(0).toUpperCase() + emocaoTraduzida.slice(1);
+    document.getElementById('confTitle').innerText = `Confiança: ${conf}%`;
+
+    if (imagensPorEmocao[emocaoTraduzida]) {
+      document.getElementById('imagemEmocao').src =
+        imagemAleatoria(imagensPorEmocao[emocaoTraduzida]);
+    } else {
+      document.getElementById('imagemEmocao').style.display = 'none';
+    }
+
+    function voltar() {
+      window.location.href = 'index.html';
+    }
+
+    // --- ANO ATUAL ---
+    document.getElementById('anoAtual').textContent = new Date().getFullYear();
+
+    // --- MODO ESCURO ---
+    const modoToggle = document.getElementById('modoToggle');
+    const body = document.body;
+    const modoSalvo = localStorage.getItem('tema');
+
+    if (modoSalvo === 'escuro') body.classList.add('dark-mode');
+
+    modoToggle.addEventListener('click', () => {
+      body.classList.toggle('dark-mode');
+      const modoAtual = body.classList.contains('dark-mode') ? 'escuro' : 'claro';
+      localStorage.setItem('tema', modoAtual);
+    });
+  </script>
+</body>
+</html>

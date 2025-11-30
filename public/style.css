@@ -1,0 +1,606 @@
+/* ====== RESET E BASE ====== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', Arial, sans-serif;
+  line-height: 1.6;
+  background: linear-gradient(to bottom, #dff9fb, #e0f7fa);
+  color: #033649;
+  transition: background-color 0.5s, color 0.5s;
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-weight: 600;
+  color: #004d73;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ====== CABEÇALHO ====== */
+header {
+  background: linear-gradient(135deg, #0077b6, #0096c7);
+  color: #fff;
+  text-align: center;
+  padding: 2rem 1rem;
+  position: relative;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1 {
+  font-size: 2.2rem;
+  margin-bottom: 0.3em;
+}
+
+header .slogan {
+  font-style: italic;
+  opacity: 0.9;
+  margin-bottom: 1rem;
+}
+
+/* ====== MENU ====== */
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+nav a {
+  color: #fff;
+  font-weight: 500;
+  padding: 0.4rem 0.8rem;
+  border-radius: 5px;
+  transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+/* ====== BOTÃO MODO ESCURO ====== */
+#modoToggle {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: rgba(255,255,255,0.2);
+  border: none;
+  border-radius: 50%;
+  padding: 0.6rem;
+  cursor: pointer;
+  color: #fff;
+  font-size: 1.1rem;
+  transition: 0.3s;
+}
+#modoToggle:hover {
+  background: rgba(255,255,255,0.3);
+}
+
+/* ====== HERO ====== */
+.hero {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  padding: 3rem 1rem;
+  gap: 2rem;
+  background: #e8f9fd;
+}
+
+.hero-img {
+  max-width: 420px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+}
+
+.hero-text {
+  max-width: 520px;
+}
+
+.hero-text h2 {
+  font-size: 2rem;
+  color: #005b84;
+  margin-bottom: 0.5rem;
+}
+
+.hero-text p {
+  margin-bottom: 1.5rem;
+}
+
+.hero-buttons button {
+  margin: 0.5em;
+  padding: 0.8em 1.3em;
+  border: none;
+  border-radius: 8px;
+  background-color: #0077b6;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s, background-color 0.3s;
+}
+.hero-buttons button:hover {
+  background-color: #00b4d8;
+  transform: translateY(-3px);
+}
+
+/* ====== SEÇÕES ====== */
+section {
+  padding: 3rem 1.5rem;
+  text-align: center;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  position: relative;
+}
+section h2::after {
+  content: "";
+  display: block;
+  width: 80px;
+  height: 3px;
+  background: #0096c7;
+  margin: 0.5rem auto;
+  border-radius: 2px;
+}
+
+/* ====== CURIOSIDADES ====== */
+.curiosidades-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.2rem;
+  margin-top: 1rem;
+}
+
+.curiosidades-list li {
+  background: #b2ebf2;
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: 500;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+.curiosidades-list li:hover {
+  transform: scale(1.05);
+}
+
+/* ====== FATOS ====== */
+.fatos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+.fatos-grid article {
+  background-color: #b2ebf2;
+  padding: 1.2rem;
+  border-radius: 12px;
+  width: 300px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.fatos-grid article:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+/* ====== GALERIA ====== */
+.galeria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+.galeria-grid figure {
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+.galeria-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.galeria-grid img:hover {
+  transform: scale(1.08);
+}
+.galeria-grid figcaption {
+  background: rgba(0,0,0,0.6);
+  color: #fff;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+}
+
+/* ====== FAQ ====== */
+details {
+  background: #b2ebf2;
+  margin: 0.5rem auto;
+  max-width: 700px;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: left;
+  transition: 0.3s;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+}
+details:hover {
+  transform: scale(1.02);
+}
+summary {
+  font-weight: bold;
+  cursor: pointer;
+}
+details p {
+  margin-top: 0.5rem;
+}
+
+/* ====== CTA ====== */
+.cta {
+  background: linear-gradient(135deg, #00b4d8, #48cae4);
+  color: white;
+  padding: 3rem 1.5rem;
+  border-radius: 10px;
+  max-width: 900px;
+  margin: 3rem auto;
+}
+.cta a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+/* ====== CHATBOT ====== */
+#chatbotPanel {
+  display: none;
+  position: fixed;
+  right: 0;
+  top: 0;
+  width: 320px;
+  height: 100%;
+  background-color: #f8f9fa;
+  box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+  padding: 1rem;
+  z-index: 1000;
+}
+#chatbotPanel h3 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+.chat-historico {
+  height: 80%;
+  overflow-y: auto;
+  padding: 0.5rem;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 0.5rem;
+}
+#chatbotPanel input {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* ====== MODO ESCURO REFINADO ====== */
+.dark-mode {
+  background: linear-gradient(to bottom, #001428, #00213f);
+  color: #e6faff;
+}
+
+/* Header e Navbar */
+.dark-mode header {
+  background: linear-gradient(135deg, #001f3f, #004e89);
+  color: #e6faff;
+  text-shadow: 0 0 6px rgba(0, 191, 255, 0.3);
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3 {
+  color: #90e0ef;
+  text-shadow: 0 0 6px rgba(0, 191, 255, 0.3);
+}
+
+.dark-mode nav a {
+  color: #caf0f8;
+}
+.dark-mode nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+/* Hero */
+.dark-mode .hero {
+  background: #00243d;
+}
+.dark-mode .hero-text h2 {
+  color: #48cae4;
+  text-shadow: 0 0 10px rgba(72, 202, 228, 0.6);
+}
+.dark-mode .hero-text p {
+  color: #ade8f4;
+  text-shadow: 0 0 8px rgba(0, 150, 255, 0.2);
+}
+.dark-mode .hero-buttons button {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  color: #fff;
+  box-shadow: 0 0 12px rgba(0, 191, 255, 0.4);
+}
+.dark-mode .hero-buttons button:hover {
+  background: #48cae4;
+  color: #001f3f;
+}
+
+/* Curiosidades e Fatos */
+.dark-mode .curiosidades-list li,
+.dark-mode .fatos-grid article,
+.dark-mode details {
+  background: #013a63;
+  color: #e0faff;
+  box-shadow: 0 0 10px rgba(0, 191, 255, 0.2);
+  border: 1px solid rgba(0, 191, 255, 0.2);
+}
+.dark-mode .curiosidades-list li:hover,
+.dark-mode .fatos-grid article:hover,
+.dark-mode details:hover {
+  background: #014f86;
+  box-shadow: 0 0 15px rgba(72, 202, 228, 0.5);
+  transform: translateY(-3px);
+}
+
+/* FAQ */
+.dark-mode summary {
+  color: #90e0ef;
+  font-weight: 600;
+}
+.dark-mode details p {
+  color: #caf0f8;
+}
+
+/* Galeria */
+.dark-mode .galeria-grid figcaption {
+  background: rgba(0, 0, 0, 0.6);
+  color: #caf0f8;
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.4);
+}
+.dark-mode .galeria-grid img {
+  filter: brightness(0.85) contrast(1.1);
+}
+
+/* CTA */
+.dark-mode .cta {
+  background: linear-gradient(135deg, #003566, #001d3d);
+  color: #caf0f8;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+.dark-mode .cta a {
+  color: #90e0ef;
+  text-shadow: 0 0 5px rgba(0, 191, 255, 0.3);
+}
+
+/* Chatbot */
+.dark-mode #chatbotPanel {
+  background-color: #001d3d;
+  color: #e0f7fa;
+  border-left: 1px solid #003459;
+}
+.dark-mode #chatbotPanel input {
+  background: #002b50;
+  color: #e0f7fa;
+  border: 1px solid #00b4d8;
+}
+
+/* Footer */
+.dark-mode footer {
+  background-color: #001f3f;
+  color: #caf0f8;
+  text-shadow: 0 0 6px rgba(0, 191, 255, 0.3);
+}
+.dark-mode footer a {
+  color: #48cae4;
+}
+.dark-mode footer a:hover {
+  color: #90e0ef;
+}
+
+/* Títulos e divisores */
+.dark-mode section h2::after {
+  background: #48cae4;
+}
+
+
+/* ====== RODAPÉ ====== */
+footer {
+  background-color: #006994;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  font-size: 0.95rem;
+}
+footer a {
+  color: #aee4f8;
+}
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* ====== RESPONSIVIDADE ====== */
+@media (max-width: 768px) {
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-text {
+    max-width: 90%;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+}
+/* ====== MODAL DE CÂMERA - ESTILO PADRÃO DO SITE ====== */
+
+.modal-camera {
+  position: fixed;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(4px);
+  z-index: 999;
+  animation: fadeIn 0.3s ease;
+}
+
+.modal-camera.show {
+  display: flex;
+}
+
+.modal-camera-content {
+  background: #e8f9fd;
+  padding: 2rem;
+  border-radius: 15px;
+  width: 92%;
+  max-width: 420px;
+  text-align: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  position: relative;
+  animation: popIn 0.35s ease;
+  border: 2px solid #b2ebf2;
+}
+
+@keyframes popIn {
+  from { transform: scale(.92); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.modal-camera-close {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  background: rgba(0,0,0,0.1);
+  border: none;
+  padding: 0.4rem 0.6rem;
+  cursor: pointer;
+  font-size: 1.1rem;
+  border-radius: 6px;
+  transition: 0.3s;
+}
+.modal-camera-close:hover {
+  background: rgba(0,0,0,0.2);
+}
+
+/* Título */
+.modal-camera-title {
+  color: #004d73;
+  font-size: 1.6rem;
+  margin-bottom: 1rem;
+}
+
+/* Caixa do vídeo */
+.modal-video-wrap {
+  background: #b2ebf2;
+  padding: 0.8rem;
+  border-radius: 12px;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.15);
+  margin-bottom: 1.2rem;
+}
+.modal-video-wrap video {
+  width: 100%;
+  border-radius: 10px;
+}
+
+/* Botão de foto */
+.modal-camera-controls {
+  margin: 1rem 0;
+}
+
+.modal-camera-btn {
+  background: #0077b6;
+  color: white;
+  padding: 0.8rem 1.4rem;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
+.modal-camera-btn:hover {
+  background: #00b4d8;
+  transform: translateY(-3px);
+}
+
+/* Status */
+.modal-camera-status {
+  margin-top: 0.8rem;
+  font-weight: 600;
+  color: #005b84;
+}
+
+/* ====== MODO ESCURO ====== */
+.dark-mode .modal-camera-content {
+  background: #00243d;
+  border: 1px solid #00b4d8;
+  box-shadow: 0 0 15px rgba(0, 191, 255, 0.3);
+}
+
+.dark-mode .modal-camera-title {
+  color: #48cae4;
+  text-shadow: 0 0 8px rgba(0,191,255,0.4);
+}
+
+.dark-mode .modal-video-wrap {
+  background: #013a63;
+  border: 1px solid #48cae4;
+  box-shadow: 0 0 10px rgba(0,191,255,0.2);
+}
+
+.dark-mode .modal-camera-btn {
+  background: linear-gradient(135deg, #0077b6, #00b4d8);
+  box-shadow: 0 0 12px rgba(0,191,255,0.4);
+}
+.dark-mode .modal-camera-btn:hover {
+  background: #48cae4;
+  color: #001f3f;
+}
+
+.dark-mode .modal-camera-status {
+  color: #90e0ef;
+}
+
+.dark-mode .modal-camera-close {
+  background: rgba(255,255,255,0.1);
+  color: #caf0f8;
+}
+.dark-mode .modal-camera-close:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+/* Animação da tela */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+df-messenger {
+  transform: scale(0);
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+df-messenger.aberto {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
+}

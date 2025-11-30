@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="O projeto Polui Mares promove a conscientização e a proteção dos oceanos, incentivando práticas sustentáveis e a preservação da vida marinha.">
+  <title>Poluição Marinha - Polui Mares</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Bibliotecas -->
+<script defer src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.8.0/dist/tf.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/face-api.js@0.22.2/dist/face-api.min.js"></script>
+</head>
+<body>
+  <header>
+    <h1>Poluição Marinha</h1>
+    <p class="slogan">“Um oceano limpo começa com cada um de nós.”</p>
+    <nav>
+      <ul>
+        <li><a href="#curiosidades">Curiosidades</a></li>
+        <li><a href="#fatos">Fatos</a></li>
+        <li><a href="#galeria">Galeria</a></li>
+        <li><a href="#faq">FAQ</a></li>
+      </ul>
+    </nav>
+    <button id="modoToggle" aria-label="Alternar modo claro/escuro">🌙</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <img src="https://www.uninter.com/noticias/wp-content/uploads/2021/04/noticias_plastico-1024x683.jpg" alt="Imagem do oceano poluído" class="hero-img">
+      <div class="hero-text">
+        <h2>Polui Mares</h2>
+        <p>O projeto Polui Mares promove a conscientização e a proteção dos oceanos, incentivando práticas sustentáveis e a preservação da vida marinha. Nosso objetivo é inspirar ações que mantenham os mares limpos e saudáveis para as futuras gerações.</p>
+        <div class="hero-buttons">
+          <button id="abrirIA" aria-label="Iniciar reconhecimento facial">Reconhecimento Facial</button>
+          <button id="btnAbrirChatbot" aria-label="Abrir chatbot">Abrir Chatbot</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="curiosidades">
+      <h2>Curiosidades</h2>
+      <ul class="curiosidades-list">
+        <li>Mais de 8 milhões de toneladas de plástico vão pro oceano todo ano.</li>
+        <li>70% do lixo marinho afunda e nunca mais é visto.</li>
+        <li>Tartarugas confundem sacolas plásticas com águas-vivas.</li>
+        <li>Microplásticos já foram achados até no gelo da Antártica.</li>
+        <li>1 garrafa plástica pode levar até 450 anos pra se decompor.</li>
+      </ul>
+    </section>
+
+    <section id="fatos">
+      <h2>Fatos e Ciência</h2>
+      <div class="fatos-grid">
+        <article>
+          <h3>Plástico nos Oceanos</h3>
+          <p>Mais de 8 milhões de toneladas de plástico são despejadas nos mares todos os anos.</p>
+        </article>
+        <article>
+          <h3>Vida em Risco</h3>
+          <p>Aproximadamente 100 mil animais marinhos morrem anualmente por ingerirem ou se prenderem em lixo plástico.</p>
+        </article>
+        <article>
+          <h3>Microplásticos Invisíveis</h3>
+          <p>Partículas minúsculas de plástico já foram encontradas em peixes, sal marinho e até na água potável.</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="galeria">
+      <h2>Galeria</h2>
+      <div class="galeria-grid">
+        <figure><img src="https://www.infoescola.com/wp-content/uploads/2017/09/poluicao-marinha-325737683.jpg" alt="Lixo marinho"><figcaption>Lixo marinho flutuante</figcaption></figure>
+        <figure><img src="https://static.mundoeducacao.uol.com.br/mundoeducacao/2024/02/tartaruga-marinha-com-uma-sacola-de-plastico-na-boca-em-um-ambiente-de-grave-ocorrencia-de-poluicao-marinha.jpg" alt="Tartaruga com plástico"><figcaption>Tartaruga presa em plástico</figcaption></figure>
+        <figure><img src="https://jornal.usp.br/wp-content/uploads/2022/08/20220803_poluicao_oceano.jpg" alt="Animais afetados"><figcaption>Vida marinha ameaçada</figcaption></figure>
+        <figure><img src="https://www.curiosidadesdeubatuba.com.br/ubatuba/wp-content/uploads/2018/03/Tartaruga-presa-lixo.jpg" alt="Tartaruga presa"><figcaption>Animais presos em resíduos</figcaption></figure>
+        <figure><img src="https://static.portaldaindustria.com.br/portaldaindustria/noticias/media/imagem_plugin/shutterstock_o44eNbU.jpg" alt="Lixo plástico no mar"><figcaption>Poluição plástica</figcaption></figure>
+        <figure><img src="https://ufpr.br/wp-content/uploads/2020/10/pollution-1603644_1920-592x450.jpg" alt="Poluição oceânica"><figcaption>Poluição oceânica</figcaption></figure>
+      </div>
+    </section>
+
+    <section id="faq">
+      <h2>Perguntas Frequentes</h2>
+      <details><summary>O que é poluição marítima?</summary><p>É quando lixo e substâncias tóxicas contaminam os oceanos.</p></details>
+      <details><summary>Qual é a principal causa da poluição no mar?</summary><p>O descarte incorreto de plástico e resíduos nas cidades.</p></details>
+      <details><summary>Os animais marinhos sofrem com isso?</summary><p>Sim! Muitos morrem por engolir plástico ou se enrolar nele.</p></details>
+      <details><summary>Dá pra limpar o oceano todo?</summary><p>É difícil, mas existem projetos tentando fazer isso.</p></details>
+      <details><summary>O plástico é o maior problema?</summary><p>Sim, ele é o mais comum e demora séculos pra se decompor.</p></details>
+    </section>
+
+    <section class="cta">
+      <h2>Quer aprender mais?</h2>
+      <p><a href="#curiosidades">Explore mais curiosidades sobre o oceano</a></p>
+    </section>
+  </main>
+
+    <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+
+    <df-messenger
+      intent="WELCOME"
+      chat-title="Chatbot-IA"
+      agent-id="7e9ea28d-fc2a-4f18-a435-1d31267d9a34"
+      language-code="pt-br">
+    </df-messenger>
+
+  <footer>
+    <p>Equipe: Pedro, Pierre e Ryan | Nome da equipe: Polui Mares</p>
+    <p>&copy; <span id="ano"></span> Polui Mares | <a href="#topo">Voltar ao topo</a></p>
+  </footer>
+
+  <script src="script.js"></script>
+
+<!-- MODAL DE RECONHECIMENTO FACIAL -->
+<div id="cameraModal" class="modal-camera" aria-hidden="true">
+  <div class="modal-camera-content">
+    <button id="fecharModal" class="modal-camera-close" title="Fechar">❌</button>
+    <h2 class="modal-camera-title">Reconhecimento Facial</h2>
+    <div class="modal-video-wrap">
+      <video id="video" autoplay muted playsinline></video>
+    </div>
+    <div class="modal-camera-controls">
+      <button id="tirarFoto" class="modal-camera-btn" title="Tirar foto">📸 Tirar Foto</button>
+    </div>
+    <p id="modalStatus" class="modal-camera-status">Aguardando...</p>
+    <canvas id="fotoCanvas" style="display:none;"></canvas>
+  </div>
+</div>
+
+</body>
+</html>
